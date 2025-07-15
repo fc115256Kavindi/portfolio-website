@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kavindi Upeksha | Portfolio</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" />
+  <link rel="icon" href="https://i.postimg.cc/kX3mLCRy/k-icon.png" type="image/png">
+  <style>
+    /* Reset and base */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #e0f0ff, #c8dfff);
+      color: #222d48;
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+    
+    /* Container */
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 2rem 1rem;
+    }
+    
+    /* Header & Navbar */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: linear-gradient(90deg, #2c3e50, #2980b9);
+      box-shadow: 0 4px 12px rgba(41, 128, 185, 0.6);
+    }
+    
+    .navbar {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 1rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      color: #0e3a6c;
+      font-weight: 600;
+    }
+    
+    .logo {
+      font-size: 2.4rem;
+      font-weight: 900;
+      letter-spacing: 3px;
+      cursor: default;
+      user-select: none;
+      color: #bbdefb;
+      text-shadow: 0 0 8px #4a90e2;
+    }
+    
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 2.2rem;
+    }
+    
+    .nav-links li a {
+      text-decoration: none;
+      color: #bbdefb;
+      font-weight: 600;
+      font-size: 1.1rem;
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      transition: background 0.3s ease, color 0.3s ease;
+      box-shadow: 0 0 8px transparent;
+    }
+    
+    .nav-links li a:hover,
+    .nav-links li a:focus {
+      background: #3a7bd5;
+      color: #e1e9ff;
+      box-shadow: 0 0 12px #3a7bd5;
+      outline: none;
+    }
+    
+    .menu-toggle {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      gap: 5px;
+    }
+    
+    .menu-toggle span {
+      display: block;
+      width: 28px;
+      height: 3px;
+      background: #bbdefb;
+      border-radius: 2px;
+      transition: transform 0.3s, opacity 0.3s;
+    }
+    
+    .menu-toggle.open span:nth-child(1) {
+      transform: rotate(45deg) translate(5px, 5px);
+    }
+    
+    .menu-toggle.open span:nth-child(2) {
+      opacity: 0;
+    }
+    
+    .menu-toggle.open span:nth-child(3) {
+      transform: rotate(-45deg) translate(5px, -5px);
+    }
+    
+    /* Hero Section */
+    .hero {
+      background: linear-gradient(135deg, #3a7bd5, #00d2ff);
+      min-height: 75vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 3rem 1rem;
+      text-align: center;
+      color: #eef6ff;
+      border-radius: 1.2rem;
+      margin: 2rem 1rem;
+      box-shadow: 0 14px 35px rgba(0, 210, 255, 0.5);
+      font-weight: 600;
+    }
+    
+    .hero-content {
+      max-width: 900px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 3rem;
+    }
+    
+    .hero-text {
+      flex: 1;
+      text-align: left;
+    }
+    
+    .hero h1 {
+      font-size: 3.2rem;
+      font-weight: 900;
+      margin-bottom: 0.5rem;
+      line-height: 1.1;
+      text-shadow: 0 0 15px #00d2ff;
+    }
+    
+    .highlight {
+      color: #ffde59;
+      text-shadow: 0 0 10px #ffde59;
+    }
+    
+    .hero h2 {
+      font-size: 1.7rem;
+      margin-bottom: 1.5rem;
+      font-weight: 700;
+      color: #d9e6f2;
+      text-shadow: 0 0 10px #7ad1ff;
+    }
+    
+    .hero p {
+      font-size: 1.3rem;
+      max-width: 650px;
+      margin-bottom: 2rem;
+      font-weight: 500;
+      line-height: 1.4;
+    }
+    
+    /* Buttons */
+    .btn {
+      background: linear-gradient(90deg, #2980b9, #6dd5fa);
+      color: #eef6ff;
+      padding: 0.9rem 2.5rem;
+      border-radius: 50px;
+      border: none;
+      font-size: 1.2rem;
+      font-weight: 800;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-block;
+      box-shadow: 0 8px 25px rgba(41, 128, 185, 0.6);
+      transition: background 0.4s ease, box-shadow 0.4s ease;
+      text-shadow: 0 0 5px #acf1ff;
+    }
+    
+    .btn:hover {
+      background: linear-gradient(90deg, #6dd5fa, #2980b9);
+      box-shadow: 0 10px 30px rgba(109, 213, 250, 0.9);
+    }
+    
+    /* Profile Image */
+    .hero-img img {
+      width: 280px;
+      height: 280px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 6px solid #00aaff;
+      box-shadow: 0 8px 20px #00aaffaa;
+      transition: transform 0.3s ease;
+    }
+    
+    .hero-img img:hover {
+      transform: scale(1.05);
+    }
+    
+    /* Sections common */
+    .section {
+      background: #f1faff;
+      border-radius: 1rem;
+      margin: 2rem 1rem;
+      padding: 2.5rem 3rem;
+      box-shadow: 0 10px 25px rgba(41, 128, 185, 0.15);
+      color: #2c3e50;
+      transition: box-shadow 0.3s ease;
+    }
+    
+    .section:hover {
+      box-shadow: 0 12px 35px rgba(41, 128, 185, 0.3);
+    }
+    
+    .section h2 {
+      font-size: 2.2rem;
+      font-weight: 900;
+      margin-bottom: 1.4rem;
+      text-align: center;
+      color: #2980b9;
+      letter-spacing: 1.2px;
+    }
+    
+    /* Timeline for Education */
+    .timeline {
+      list-style: none;
+      padding: 0;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+    
+    .timeline li {
+      position: relative;
+      padding-left: 2.5rem;
+      margin-bottom: 1.5rem;
+    }
+    
+    .timeline li:before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0.3rem;
+      width: 1.2rem;
+      height: 1.2rem;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #2980b9, #6dd5fa);
+      box-shadow: 0 0 0 3px #e6f0ff;
+    }
+    
+    .timeline li:after {
+      content: "";
+      position: absolute;
+      left: 0.6rem;
+      top: 1.5rem;
+      width: 2px;
+      height: calc(100% - 1.5rem);
+      background: #2980b9;
+    }
+    
+    .timeline li:last-child:after {
+      display: none;
+    }
+    
+    .timeline strong {
+      color: #2471a3;
+      font-weight: 700;
+    }
+    
+    /* Grid List for Activities */
+    .grid-list {
+      list-style-type:none;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    
+    .grid-list li {
+      background: #d0e7ff;
+      padding: 1.5rem;
+      border-radius: 0.8rem;
+      text-align: center;
+      font-weight: 600;
+      color: #145a86;
+      box-shadow: 0 4px 12px rgba(41, 128, 185, 0.2);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    .grid-list li:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(41, 128, 185, 0.3);
+    }
+    
+    /* Card Grid for Achievements & Projects */
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    
+    .card {
+      background: #d5ecff;
+      border-radius: 1rem;
+      padding: 1.8rem;
+      box-shadow: 0 6px 20px rgba(41, 128, 185, 0.25);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    .card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 12px 28px rgba(41, 128, 185, 0.4);
+    }
+    
+    .card h3 {
+      color: #2471a3;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      font-size: 1.4rem;
+    }
+    
+    .card p {
+      color: #154360;
+      font-weight: 500;
+      margin-bottom: 1.5rem;
+    }
+    
+    .card a {
+      color: #2980b9;
+      font-weight: 700;
+      text-decoration: none;
+      transition: color 0.3s ease;
+      display: inline-block;
+      border-bottom: 2px solid #2980b9;
+      padding-bottom: 0.2rem;
+    }
+    
+    .card a:hover {
+      color: #3a7bd5;
+      border-bottom-color: #3a7bd5;
+    }
+    
+    /* Contact Section */
+    .contact-list {
+      list-style: none;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    
+    .contact-list li {
+      background: #d7ebff;
+      padding: 1.2rem 1.8rem;
+      margin-bottom: 1rem;
+      border-radius: 0.8rem;
+      font-weight: 600;
+      color: #154360;
+      box-shadow: 0 4px 12px rgba(41, 128, 185, 0.2);
+      transition: transform 0.3s ease;
+    }
+    
+    .contact-list li:hover {
+      transform: translateX(10px);
+    }
+    
+    .contact-list strong {
+      color: #2471a3;
+      font-weight: 700;
+    }
+    
+    .contact-list a {
+      color: #2980b9;
+      font-weight: 700;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    
+    .contact-list a:hover {
+      color: #3a7bd5;
+      text-decoration: underline;
+    }
+    
+    /* Footer */
+    footer {
+      background: linear-gradient(90deg, #2c3e50, #2980b9);
+      padding: 1.5rem 1rem;
+      color: #bbdefb;
+      text-align: center;
+      font-weight: 700;
+      box-shadow: 0 -3px 14px rgba(41, 128, 185, 0.6);
+      user-select: none;
+    }
+    
+    /* Responsive Styles */
+    @media (max-width: 900px) {
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 80px;
+        right: 20px;
+        background: linear-gradient(180deg, #2980b9, #3a7bd5);
+        flex-direction: column;
+        padding: 1.5rem 2rem;
+        border-radius: 12px;
+        box-shadow: 0 10px 25px rgba(41, 128, 185, 0.7);
+        width: 220px;
+      }
+    
+      .nav-links.active {
+        display: flex;
+      }
+    
+      .menu-toggle {
+        display: flex;
+      }
+    
+      .hero-content {
+        flex-direction: column;
+        text-align: center;
+      }
+      
+      .hero-text {
+        text-align: center;
+      }
+      
+      .hero {
+        padding: 2rem 1rem;
+        min-height: auto;
+      }
+    
+      .hero h1 {
+        font-size: 2.4rem;
+      }
+    
+      .hero h2 {
+        font-size: 1.4rem;
+      }
+    
+      .hero p {
+        font-size: 1.1rem;
+      }
+    
+      .hero-img img {
+        width: 200px;
+        height: 200px;
+      }
+    }
+    
+    @media (max-width: 500px) {
+      .navbar {
+        padding: 1rem;
+      }
+      
+      .logo {
+        font-size: 1.8rem;
+      }
+      
+      .nav-links {
+        width: 180px;
+        right: 12px;
+      }
+      
+      .section {
+        padding: 2rem 1.5rem;
+      }
+      
+      .hero h1 {
+        font-size: 2rem;
+      }
+      
+      .hero-img img {
+        width: 160px;
+        height: 160px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation Bar -->
+  <header>
+    <nav class="navbar">
+      <div class="logo">Kavindi  </div>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#about">About</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#activities">Activities</a></li>
+        <li><a href="#achievements">Achievements</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <div class="menu-toggle" id="menuToggle">
+        <span></span><span></span><span></span>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero" id="hero">
+    <div class="hero-content">
+      <div class="hero-text">
+        <h1>Hello, I'm <span class="highlight">Kavindi Upeksha</span></h1>
+        <h2>Computer Science Undergraduate</h2>
+        <p>I'm a passionate and ambitious computer science student from the University of Sri Jayewardenepura. I dream of becoming a tech leader who inspires young women in STEM. I love creativity, teamwork, and learning the latest in AI, web development, and technology.</p>
+        <a href="kavi_CV.pdf" class="btn">View My CV</a>
+      </div>
+      <div class="hero-img">
+        <img src="kavi.jpg" alt="Kavindi Upeksha" />
+      </div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section class="section" id="about">
+    <h2>About Me</h2>
+    <p>I studied at Homagama Maha Vidyalaya and Dharmapala Vidyalaya, and now I'm proud to be an undergraduate in Computer Science. I enjoy coding, exploring new technologies, designing creative projects, and contributing to team efforts with full heart and leadership.</p>
+    <p>My technical skills include HTML, CSS, JavaScript, Python, and Java. I'm particularly interested in artificial intelligence and web development. Beyond coding, I'm passionate about mentoring young women in technology and promoting STEM education.</p>
+  </section>
+
+  <!-- Education -->
+  <section class="section" id="education">
+    <h2>Education</h2>
+    <ul class="timeline">
+      <li><strong>2024 - 2028</strong> — BSc in Computer Science, University of Sri Jayewardenepura</li>
+      <li><strong>2019 - 2021</strong> — A/Ls at Dharmapala Vidyalaya,Pannipitiya(Physical Science Stream)</li>
+      <li><strong>2008 - 2018</strong> — Primary & O/Ls at Homagama Maha Vidyalaya,Homagama</li>
+    </ul>
+  </section>
+
+  <!-- Activities -->
+  <section class="section" id="activities">
+    <h2>Extra-Curricular Activities</h2>
+    <ul class="grid-list">
+      <li>Senior Prefect – Homagama Maha Vidyalaya</li>
+      <li>Member – School Sports Club</li>
+      <li>Member – School Drama Society</li>
+      <li>Member – School Science Society</li>
+      <li>Volunteer – Community Tech Workshops</li>
+    </ul>
+  </section>
+
+  <!-- Achievements -->
+  <section class="section" id="achievements">
+    <h2>Achievements</h2>
+    <div class="card-grid">
+      <div class="card">
+        <h3>Inter School Sports Meet Certificate</h3>
+        <p>Chess, 1500m, 800m, Long Jump, Elle, Netball, Cricket</p>
+      </div>
+      <div class="card">
+        <h3>Drama Competition (Zone)</h3>
+        <p>1st Place – Senior English Drama</p>
+      </div>
+      <div class="card">
+        <h3>Coding Competition</h3><p
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects -->
+  <section class="section" id="projects">
+    <h2>Projects</h2>
+    <div class="card-grid">
+      <div class="card">
+        <h3>Portfolio Website</h3>
+        <p>A responsive personal portfolio using HTML & CSS with interactive elements and mobile-friendly design</p>
+        <a href="https://github.com/fc115256Kavindi/portfolio-website" target="_blank">GitHub Repo</a>
+      </div>
+      <div class="card">
+        <h3>Student Management System</h3>
+        <p>A Java application for managing student records with GUI interface</p>
+        <a href="#" target="_blank">View Project</a>
+      </div>
+      <div class="card">
+        <h3>Weather App</h3>
+        <p>A JavaScript application that displays weather data using API integration</p>
+        <a href="#" target="_blank">Live Demo</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section class="section" id="contact">
+    <h2>Contact</h2>
+    <ul class="contact-list">
+      <li><strong>Email:</strong> kavindiupeksha02@gmail.com</li>
+      <li><strong>Phone:</strong> +94 724506991</li>
+      <li><strong>GitHub:</strong> <a href="https://github.com/fc115256Kavindi/portfolio-website" target="_blank">fc115256Kavindi</a></li>
+      <li><strong>Facebook:</strong> <a href="https://www.facebook.com/share/19FkFztD4N/" target="_blank">Kavindi Upeksha</a></li>
+      <li><strong>LinkedIn:</strong> <a href="#" target="_blank">Kavindi Upeksha</a></li>
+    </ul>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Kavindi Upeksha. All Rights Reserved.</p>
+  </footer>
+
+  <script>
+    // Toggle mobile menu on click
+    document.addEventListener("DOMContentLoaded", function () {
+      const menuToggle = document.getElementById("menuToggle");
+      const navLinks = document.getElementById("navLinks");
+  
+      menuToggle.addEventListener("click", function () {
+        navLinks.classList.toggle("active");
+        menuToggle.classList.toggle("open");
+      });
+  
+      // Close menu when a link is clicked
+      document.querySelectorAll(".nav-links a").forEach(link => {
+        link.addEventListener("click", () => {
+          navLinks.classList.remove("active");
+          menuToggle.classList.remove("open");
+        });
+      });
+      
+      // Smooth scrolling for anchor links
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+          e.preventDefault();
+          
+          const targetId = this.getAttribute('href');
+          const targetElement = document.querySelector(targetId);
+          
+          if (targetElement) {
+            window.scrollTo({
+              top: targetElement.offsetTop - 80,
+              behavior: 'smooth'
+            });
+          }
+        });
+      });
+      
+      // Add animation to sections when scrolling
+      const sections = document.querySelectorAll('.section');
+      
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.style.opacity = 1;
+            entry.target.style.transform = 'translateY(0)';
+          }
+        });
+      }, { threshold: 0.1 });
+      
+      sections.forEach(section => {
+        section.style.opacity = 0;
+        section.style.transform = 'translateY(20px)';
+        section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+        observer.observe(section);
+      });
+    });
+  </script>
+</body>
+</html>
